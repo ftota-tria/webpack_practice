@@ -1,6 +1,12 @@
 const test = {
-    name: "Filip",
-    age: 21
-}
+  name: "John Doe",
+  age: 32,
+};
 
-console.log(`test`, test)
+const test2 = {
+  ...test,
+  job: "developer",
+};
+
+console.log(`test`, test);
+console.log(`test2`, test2);
