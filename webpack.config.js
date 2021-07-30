@@ -1,10 +1,14 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 let mode = "development";
+let devtoolOption = "source-map";
+
 
 if (process.env.NODE_ENV === "production") {
   mode = "production";
+  devtoolOption = false;
 }
 
 module.exports = {
@@ -48,11 +52,12 @@ module.exports = {
     }),
   ],
 
-  devtool: "source-map",
+  devtool: devtoolOption, // development only
 
   devServer: {
     contentBase: "./dist",
     hot: true,
+    historyApiFallback: true, //enables route change through url
   },
 
   resolve: {
